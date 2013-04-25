@@ -1,6 +1,6 @@
 #Results
 <h3>without</h3>
-<img src='/images/face/A-without.png'>
+<img src='http://micah-d-lamb.com/images/face/A-without.png'>
 <h3>6 blurs, realistic diffusion</h3>
 <img src='http://micah-d-lamb.com/images/face/A-6blurs-200worldScale.png'>
 <h3>6 blurs, more diffused</h3>
