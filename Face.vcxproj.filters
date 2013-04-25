@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="helpers.cc">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="Clock.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="helpers.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Viewer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Clock.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Blurrer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="VAO.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Framebuffer.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeMap.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Uniform.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Viewport.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MyWindow.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturedSquare.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="includes.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Face.h" />
+    <ClInclude Include="Perlin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{d66aa9d3-edb6-4daa-953a-752dbfbb13cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{645ad2da-b4f3-45e6-8a28-7c3a7bce5352}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unused">
+      <UniqueIdentifier>{1b4ed35f-cb26-4eea-b845-c0e87d9fe2ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GL">
+      <UniqueIdentifier>{fa1dfe15-cb23-45e2-9969-a70ef37bd838}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="object.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="object.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="blur.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="blur.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="texturedSquare.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="texturedSquare.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shadow.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shadow.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="cubeBackground.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="cubeBackground.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="face.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="face.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="beckman.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="face-blur.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="face-blur.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="irradiance.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="irradiance.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="stretch.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="stretch.vert">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
