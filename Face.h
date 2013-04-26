@@ -9,14 +9,14 @@ struct Blurrer : public Shader {
 	Texture gauss[6];
 
 	Uniform1f gaussWidth;
-	Uniform2f texScale;
+	Uniform2f UorV;
 	UniformSampler texture, stretch;
 
 	void operator()(Texture* tex, Texture* stretchTex){
 		Shader::operator()("face-blur.vert","face-blur.frag");
 		src = tex;
 		tmp(src->width,src->height, src->internalFormat, src->mipmaps, src->wrap);
-		texScale("texScale",this);
+		UorV("UorV",this);
 		texture("tex", this, src);
 		stretch("stretch", this, stretchTex);
 		gaussWidth("gaussWidth", this);
@@ -28,13 +28,13 @@ struct Blurrer : public Shader {
 
 	void blur(int tex, float gw, bool feedback){
 		gaussWidth = gw;
-		texScale = vec2(0, 1.0f/src->height);
+		UorV = vec2(0, 1);
 		texture = feedback ? &gauss[tex] : src;
 		tmp.bind2FB(false,false);
 		Shapes::square()->draw();
 		tmp.unbind2FB();
 
-		texScale = vec2(1.0f/src->width, 0);
+		UorV = vec2(1, 0);
 		texture = &tmp;
 		gauss[tex].bind2FB(false,false);
 		Shapes::square()->draw();
@@ -106,7 +106,7 @@ struct Face : Object {
 		phongOn("phongOn", this, 0);
 
 		//irradiance shader
-		irradianceShader("irradiance.vert","irradiance.frag");//construct irradianceShader
+		irradianceShader("face-irradiance.vert","face-irradiance.frag");//construct irradianceShader
 		Object::addShader(&irradianceShader);//share worldTransform with normalTransform with irradianceShader
 		//setup irradiance shader samplers
 		irradianceNormals("normals",&irradianceShader,normalsTex);
@@ -126,8 +126,9 @@ struct Face : Object {
 
 		//make stretch tex
 		stretchTex = new Texture(1024,1024,GL_RG,true,GL_CLAMP_TO_EDGE);//needs to be same res as irradianceTex
-		stretchShader("stretch.vert", "stretch.frag");
+		stretchShader("face-stretch.vert", "face-stretch.frag");
 		Object::addShader(&stretchShader);
+		Uniform2f stretchDim; stretchDim("dim",&stretchShader,vec2(stretchTex->width, stretchTex->height));
 		stretchTex->bind2FB();
 		vao->draw();
 		stretchTex->unbind2FB();
@@ -180,7 +181,7 @@ struct Face : Object {
 
 	void toggleReflections(){
 		Shader::enable();
-		reflectionsOn = *reflectionsOn ? 0 : 1;//not sure how to pass boolean in
+		reflectionsOn = *reflectionsOn ? 0 : 1;
 	}
 	void togglePhong(){
 		Shader::enable();
@@ -406,11 +407,6 @@ void idle(){
 
 void reshape(int w, int h)
 {
-	assert(face);
-	int tx, ty, tw, th;
-	//GLUI_Master.get_viewport_area( &tx, &ty, &tw, &th );
-	//glViewport(tx,ty,tw,th);//only needed for clearing outside of win
-	//glScissor(tx,ty,tw,th);
 	win.resize(w,h);
 	glutPostRedisplay();
 }

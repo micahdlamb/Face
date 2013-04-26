@@ -3,9 +3,9 @@ in vec2 uv;
 
 uniform float gaussWidth;//in mm
 uniform float worldScale;
-uniform vec2 texScale;//dist in texture space that each pixel covers
+uniform vec2 UorV;
 uniform sampler2D tex;
-uniform sampler2D stretch;//1 / dist in world space that each pixel covers
+uniform sampler2D stretch;//texture space per world space ratio
 
 out vec4 outColor;
 
@@ -15,11 +15,10 @@ void main()
 {
 	//outColor = vec4(texture(stretch, uv).rg, 0, 1);
 	//return;
-	float unscaleStretch = 200;//must match the scale in stretch.frag
+	float unscaleStretch = .2;//must match the scale in stretch.frag
 	vec2 stretch = texture(stretch, uv).rg * unscaleStretch;
 
-	//texture space dist * gaussWidth / world dist
-	vec2 netFilterWidth = (stretch * worldScale) * texScale * (gaussWidth / 1000);
+	vec2 netFilterWidth = stretch * worldScale * UorV * (gaussWidth / 1000);
 	vec2 coords = uv - 3 * netFilterWidth;
 	vec4 sum = vec4(0);
 	for( int i = 0; i < 13; i++ ){
