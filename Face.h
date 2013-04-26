@@ -13,7 +13,7 @@ struct Blurrer : public Shader {
 	UniformSampler texture, stretch;
 
 	void operator()(Texture* tex, Texture* stretchTex){
-		Shader::operator()("face-blur.vert","face-blur.frag");
+		Shader::operator()("convolve.vert","convolve.frag");
 		src = tex;
 		tmp(src->width,src->height, src->internalFormat, src->mipmaps, src->wrap);
 		UorV("UorV",this);
@@ -106,7 +106,7 @@ struct Face : Object {
 		phongOn("phongOn", this, 0);
 
 		//irradiance shader
-		irradianceShader("face-irradiance.vert","face-irradiance.frag");//construct irradianceShader
+		irradianceShader("irradiance.vert","irradiance.frag");//construct irradianceShader
 		Object::addShader(&irradianceShader);//share worldTransform with normalTransform with irradianceShader
 		//setup irradiance shader samplers
 		irradianceNormals("normals",&irradianceShader,normalsTex);
@@ -126,7 +126,7 @@ struct Face : Object {
 
 		//make stretch tex
 		stretchTex = new Texture(1024,1024,GL_RG,true,GL_CLAMP_TO_EDGE);//needs to be same res as irradianceTex
-		stretchShader("face-stretch.vert", "face-stretch.frag");
+		stretchShader("stretch.vert", "stretch.frag");
 		Object::addShader(&stretchShader);
 		Uniform2f stretchDim; stretchDim("dim",&stretchShader,vec2(stretchTex->width, stretchTex->height));
 		stretchTex->bind2FB();
