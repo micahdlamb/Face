@@ -1,22 +1,22 @@
 #Results
 <h3>without</h3>
-<img src='http://micah-d-lamb.com/images/face/A-without.png'>
+<img src='http://micahdlamb.com/img/face/A-without.png'>
 <h3>6 blurs, realistic diffusion</h3>
-<img src='http://micah-d-lamb.com/images/face/A-6blurs-200worldScale.png'>
+<img src='http://micahdlamb.com/img/face/A-6blurs-200worldScale.png'>
 <h3>6 blurs, more diffused</h3>
-<img src='http://micah-d-lamb.com/images/face/A-6blurs-350worldScale.png'>
+<img src='http://micahdlamb.com/img/face/A-6blurs-350worldScale.png'>
 <br><br>
 <h3>without</h3>
-<img src='http://micah-d-lamb.com/images/face/B-without.png'>
+<img src='http://micahdlamb.com/img/face/B-without.png'>
 <h3>6 blurs, realistic diffusion</h3>
-<img src='http://micah-d-lamb.com/images/face/B-6blurs-200worldScale.png'>
+<img src='http://micahdlamb.com/img/face/B-6blurs-200worldScale.png'>
 <h3>6 blurs, more diffused</h3>
-<img src='http://micah-d-lamb.com/images/face/B-6blurs-350worldScale.png'>
+<img src='http://micahdlamb.com/img/face/B-6blurs-350worldScale.png'>
 <h3>specular at grazing angle</h3>
-<img src='http://micah-d-lamb.com/images/face/spec.png'>
+<img src='http://micahdlamb.com/img/face/spec.png'>
 
 #Report
-<a href='http://micah-d-lamb.com/skin.pdf'>report</a>
+<a href='http://micahdlamb/skin.pdf'>report</a>
 
 #Quick Overview of Important Files
 <h3>Face.h</h3>
